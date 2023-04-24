@@ -1,0 +1,14 @@
+<div>
+    <form [formGroup]="form" (ngSubmit)="addAccount()">
+    
+        <div>
+            <mat-form-field appearance="fill" [style.width.px]="248">
+                <mat-label>Account Name</mat-label>
+                <input matInput placeholder="Enter a Group Name" formControlName="groupName" required>
+                <mat-error *ngIf="form.get('groupName')?.invalid">please enter your name</mat-error>
+            </mat-form-field>
+        </div>
+
+        <button mat-raised-button color="primary" type="submit">Submit</button>
+    </form>
+</div>

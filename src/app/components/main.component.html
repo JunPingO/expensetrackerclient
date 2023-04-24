@@ -1,0 +1,38 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<mat-card>
+    <mat-card-content>
+      <h1>
+        Welcome {{ email }}
+      </h1>
+    </mat-card-content>
+    <button mat-icon-button type="button" (click)="logout()">
+        <div class="icon">
+            <mat-icon>logout</mat-icon>
+        </div>
+    </button>
+</mat-card>
+
+<div>
+    <button mat-raised-button color="primary" type="button" [routerLink]="['/createAccount']">Create Expense Account</button>
+</div>
+
+<mat-card *ngFor="let o of groups" class="border" color="secondary" [routerLink]="['/display', o.groupName]" [style.width.px]="200">
+    <mat-card-content>
+      <p>
+        {{ o.groupName }}
+      </p>
+    </mat-card-content>
+</mat-card>
+
+<button mat-icon-button type="button" (click)="sendMail()">
+    <div class="icon">
+        <mat-icon>mail</mat-icon>
+    </div>
+</button>
+
+
+
+
+
+
+

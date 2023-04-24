@@ -1,0 +1,29 @@
+<p>registerpage works!</p>
+<div>
+    <form [formGroup]="form" (ngSubmit)="register()">
+    
+        <div>
+            <mat-form-field appearance="fill" [style.width.px]="248">
+                <mat-label>Enter your name</mat-label>
+                <input matInput placeholder="John Doe" formControlName="name" required>
+                <mat-error *ngIf="form.get('name')?.invalid">please enter your name</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field appearance="fill" [style.width.px]="248">
+                <mat-label>Enter your email</mat-label>
+                <input matInput placeholder="pat@example.com" formControlName="email" required>
+            </mat-form-field>
+        </div>
+        
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Enter your password</mat-label>
+                <input matInput type = "password" formControlName="password">
+              </mat-form-field>
+        </div>
+
+        <button mat-raised-button color="primary" type="submit">Register</button>
+    </form>
+</div>

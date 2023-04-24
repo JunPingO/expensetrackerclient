@@ -1,0 +1,85 @@
+<div class = "center-input">
+    <form [formGroup]="form" (ngSubmit)="addTransaction()">
+    
+        <div>
+            <mat-form-field appearance="fill" [style.width.px]="248">
+                <mat-label>Amount</mat-label>
+                <input matInput placeholder="Item cost" formControlName="amount" required>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="fill" [style.width.px]="248">
+                <mat-label>Category</mat-label>
+                <mat-select formControlName="category">
+                    <mat-option *ngFor="let option of options" [value]="option">
+                      {{option}}
+                    </mat-option>
+                  </mat-select>
+                <!-- <input matInput placeholder="Item category" formControlName="category" required> -->
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="fill" [style.width.px]="248">
+                <mat-label>Description</mat-label>
+                <input matInput placeholder="Enter a Group Name" formControlName="description">
+            </mat-form-field>
+        </div>
+        <button mat-raised-button color="primary" type="submit">Submit</button>
+    </form>
+    <button mat-raised-button color="primary" type="submit" [routerLink]="['/display', groupName]">Back to display</button>
+</div>
+
+<!-- <mat-card *ngFor="let o of txnList" class="border" color="secondary" [style.width.px]="200">
+    <mat-card-content>
+      <p>
+        hi
+        {{ o.description }}
+      </p>
+    </mat-card-content>
+</mat-card> -->
+
+<!-- <div class="center-card">
+    <table *ngFor="let o of txnList">
+        <thead>
+            <tr class="table-dark">
+                <th scope="col">Date</th> 
+                <th scope="col">Amount</th>
+                <th scope="col">Category</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <mat-card class="border" color="secondary" [style.width.px]="250">
+                        <mat-card-content>
+                            <span>{{ o.date }}</span>
+                        </mat-card-content>
+                    </mat-card>
+                </td>
+                <td>
+                    <mat-card class="border" color="secondary" [style.width.px]="250">
+                        <mat-card-content>
+                            <span>{{ o.amount }}</span>
+                        </mat-card-content>
+                    </mat-card>
+                </td>
+                <td>
+                    <mat-card class="border" color="secondary" [style.width.px]="250">
+                            <mat-card-content>
+                                <span>{{ o.category }}</span>
+                            </mat-card-content>
+                    </mat-card>
+                </td>
+                <td>
+                    <mat-card class="border" color="secondary">
+                        <mat-card-content>
+                            {{ o.description }}
+                        </mat-card-content>
+                    </mat-card>
+                </td>
+            </tr>
+        </tbody>
+            
+    </table>
+</div> -->

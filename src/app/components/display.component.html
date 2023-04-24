@@ -1,0 +1,90 @@
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div #screen> 
+    <ngx-charts-pie-chart 
+        [results]="data"
+        [legend]="true"
+        [legendTitle]="'Categories Spent'" 
+        [view]="[1000,300]"
+        [labels]="true" >
+    </ngx-charts-pie-chart>
+</div>
+ 
+
+<div class="center-card">
+    <table *ngFor="let o of txnList">
+        <thead>
+            <tr class="table-dark">
+                <th scope="col">Date</th> 
+                <th scope="col">Amount</th>
+                <th scope="col">Category</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <mat-card class="border" color="secondary" [style.width.px]="250">
+                        <mat-card-content>
+                            <span>{{ o.date }}</span>
+                        </mat-card-content>
+                    </mat-card>
+                </td>
+                <td>
+                    <mat-card class="border" color="secondary" [style.width.px]="250">
+                        <mat-card-content>
+                            <span>{{ o.amount }}</span>
+                        </mat-card-content>
+                    </mat-card>
+                </td>
+                <td>
+                    <mat-card class="border" color="secondary" [style.width.px]="250">
+                            <mat-card-content>
+                                <span>{{ o.category }}</span>
+                            </mat-card-content>
+                    </mat-card>
+                </td>
+                <td>
+                    <mat-card class="border" color="secondary">
+                        <mat-card-content>
+                            {{ o.description }}
+                        </mat-card-content>
+                    </mat-card>
+                </td>
+                <td>
+                    <button mat-icon-button type="button" (click)="deleteTransaction(o.transactionID)">
+                        <div class="icon">
+                            <mat-icon>delete</mat-icon>
+                        </div>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <button mat-raised-button color="primary" type="button" [routerLink]="['/transactions', groupName]">Add transactions</button>
+    <br>
+    <button mat-raised-button color="secondary" type="button" [routerLink]="['/main']">Back to main</button>
+</div>
+
+
+<div>
+    <button (click)="fullCapture()" mat-raised-button color="secondary">
+        <mat-icon>camera</mat-icon>
+        Screenshot
+    </button>
+    <button type = "button" mat-raised-button color="secondary" (click)="loginGoogle()">
+        <mat-icon>login</mat-icon>
+        Login to Google
+    </button>
+    <button type = "button" mat-raised-button color="secondary" (click)="saveToGoogleDrive()">
+        <mat-icon>backup icon</mat-icon>
+        Save to Google Drive
+    </button>
+    <!-- <ng-template [ngIf]="display">
+        <div class="container">username: {{gdoc.name}}</div>
+        <div class="container">token: {{token}}</div>
+    </ng-template> -->
+</div>

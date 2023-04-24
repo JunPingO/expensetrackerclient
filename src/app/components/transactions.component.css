@@ -1,0 +1,14 @@
+.center-card {
+    margin: auto; 
+    text-align: center;
+
+    border-style: solid;
+    border-color: #B6C7D6;
+    border-radius: 20px;
+    background-color: #EAF0F6;
+}
+
+.center-input {
+    margin: auto; 
+    text-align: center;
+}
